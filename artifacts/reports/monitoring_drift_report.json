@@ -1,0 +1,88 @@
+{
+  "audit_timestamp": "2026-10-12T16:09:49.970135+00:00",
+  "total_test_samples": 14901,
+  "overall_test_brier": 0.2189,
+  "drift_summary": {
+    "total_features_evaluated": 6,
+    "drift_flagged_count": 0,
+    "feature_drift_details": [
+      {
+        "feature": "length_of_stay",
+        "ks_statistic": 0.0061,
+        "p_value": 0.7561,
+        "psi_value": 0.0003,
+        "drift_detected": false
+      },
+      {
+        "feature": "num_lab_procedures",
+        "ks_statistic": 0.0091,
+        "p_value": 0.2607,
+        "psi_value": 0.0007,
+        "drift_detected": false
+      },
+      {
+        "feature": "num_procedures",
+        "ks_statistic": 0.0038,
+        "p_value": 0.9941,
+        "psi_value": 0.0001,
+        "drift_detected": false
+      },
+      {
+        "feature": "num_medications",
+        "ks_statistic": 0.0052,
+        "p_value": 0.8893,
+        "psi_value": 0.0006,
+        "drift_detected": false
+      },
+      {
+        "feature": "prior_inpatient_admissions",
+        "ks_statistic": 0.0024,
+        "p_value": 1.0,
+        "psi_value": 0.0,
+        "drift_detected": false
+      },
+      {
+        "feature": "total_prior_visits",
+        "ks_statistic": 0.0023,
+        "p_value": 1.0,
+        "psi_value": 0.0001,
+        "drift_detected": false
+      }
+    ]
+  },
+  "subgroup_fairness": {
+    "gender_Female": {
+      "sample_size": 7960,
+      "recall": 0.6097,
+      "precision": 0.1795,
+      "brier_score": 0.2215,
+      "actual_prevalence": 0.1139
+    },
+    "gender_Male": {
+      "sample_size": 6941,
+      "recall": 0.5975,
+      "precision": 0.1906,
+      "brier_score": 0.2159,
+      "actual_prevalence": 0.1138
+    },
+    "age_Under_65": {
+      "sample_size": 4839,
+      "recall": 0.5838,
+      "precision": 0.2243,
+      "brier_score": 0.1868,
+      "actual_prevalence": 0.1073
+    },
+    "age_Elderly_65_Plus": {
+      "sample_size": 10062,
+      "recall": 0.6129,
+      "precision": 0.1717,
+      "brier_score": 0.2343,
+      "actual_prevalence": 0.1171
+    }
+  },
+  "retraining_decision": {
+    "retraining_triggered": false,
+    "retraining_reason": "Data distributions and subgroup performance metrics remain within allowable clinical thresholds.",
+    "recommended_cadence": "Quarterly or whenever PSI > 0.20 on hospital intake batches"
+  }
+}

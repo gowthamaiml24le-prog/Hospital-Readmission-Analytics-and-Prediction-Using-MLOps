@@ -1,0 +1,76 @@
+version: "3.8"
+
+services:
+  # 1. PostgreSQL Relational Healthcare Mart
+  postgres:
+    image: postgres:15-alpine
+    container_name: healthcare-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-healthcare_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/01_schema_ddl.sql:/docker-entrypoint-initdb.d/01_schema_ddl.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. FastAPI Model Serving Endpoint
+  readmission-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: healthcare-readmission-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_TYPE=postgresql
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-healthcare_db}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # 3. Streamlit Healthcare Analytics & Prediction Dashboard
+  readmission-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: healthcare-readmission-dashboard
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://readmission-api:8000
+    depends_on:
+      - readmission-api
+
+  # 4. MLflow Experiment Tracking Server
+  mlflow-server:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: healthcare-mlflow-server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data/analytics:/mlflow/data
+      - ./artifacts:/mlflow/artifacts
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:////mlflow/data/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+      --host 0.0.0.0
+      --port 5000
+
+volumes:
+  postgres_data:

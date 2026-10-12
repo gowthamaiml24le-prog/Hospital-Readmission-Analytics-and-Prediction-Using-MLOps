@@ -1,0 +1,62 @@
+[
+  {
+    "feature": "prior_inpatient_admissions",
+    "mean_abs_shap": 0.2541
+  },
+  {
+    "feature": "discharge_category_Transferred / Skilled Facility",
+    "mean_abs_shap": 0.1825
+  },
+  {
+    "feature": "age_midpoint",
+    "mean_abs_shap": 0.0703
+  },
+  {
+    "feature": "length_of_stay",
+    "mean_abs_shap": 0.0614
+  },
+  {
+    "feature": "diag_1_category_Respiratory",
+    "mean_abs_shap": 0.0605
+  },
+  {
+    "feature": "clinical_risk_index",
+    "mean_abs_shap": 0.0571
+  },
+  {
+    "feature": "diagnosis_count",
+    "mean_abs_shap": 0.0478
+  },
+  {
+    "feature": "total_prior_visits",
+    "mean_abs_shap": 0.0446
+  },
+  {
+    "feature": "active_diabetic_meds_count",
+    "mean_abs_shap": 0.0439
+  },
+  {
+    "feature": "num_lab_procedures",
+    "mean_abs_shap": 0.0394
+  },
+  {
+    "feature": "num_medications",
+    "mean_abs_shap": 0.0386
+  },
+  {
+    "feature": "a1c_tested",
+    "mean_abs_shap": 0.0317
+  },
+  {
+    "feature": "num_procedures",
+    "mean_abs_shap": 0.0292
+  },
+  {
+    "feature": "insulin_titration_down",
+    "mean_abs_shap": 0.0265
+  },
+  {
+    "feature": "prior_emergency_admissions",
+    "mean_abs_shap": 0.0262
+  }
+]

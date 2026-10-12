@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-10-12T16:04:35.154506+00:00",
+  "total_records_evaluated": 99340,
+  "total_checks_evaluated": 9,
+  "checks_passed": 9,
+  "checks_failed": 0,
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "check_name": "surrogate_encounter_id_uniqueness",
+      "description": "Every encounter must have a unique surrogate encounter key.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "surrogate_patient_id_not_null",
+      "description": "Patient surrogate identifier must not be null.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "target_readmitted_30d_not_null",
+      "description": "Readmission target variable must not contain null values.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "length_of_stay_range_1_to_14",
+      "description": "Length of stay must be bounded between 1 and 14 days.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "diagnosis_count_positive",
+      "description": "Encounter must have at least one diagnosis recorded.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "medication_count_positive",
+      "description": "Encounter must have at least one medication record.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "gender_domain_validity",
+      "description": "Gender field must be standard Female or Male.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "readmitted_30d_binary_domain",
+      "description": "Binary readmission target must only contain 0 or 1.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    },
+    {
+      "check_name": "prior_utilization_non_negative",
+      "description": "Prior inpatient, outpatient, and emergency counts cannot be negative.",
+      "passed": true,
+      "failed_records_count": 0,
+      "failure_rate_pct": 0.0
+    }
+  ]
+}

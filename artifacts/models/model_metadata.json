@@ -1,0 +1,83 @@
+{
+  "model_version": "v1.0.0",
+  "champion_model_name": "XGBoost",
+  "artifact_path": "C:\\Users\\vikra\\OneDrive\\Desktop\\MLops_Project\\artifacts\\models\\best_model.joblib",
+  "preprocessor_path": "C:\\Users\\vikra\\OneDrive\\Desktop\\MLops_Project\\artifacts\\models\\preprocessor.joblib",
+  "feature_count": 46,
+  "feature_names": [
+    "length_of_stay",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "prior_inpatient_admissions",
+    "prior_outpatient_admissions",
+    "prior_emergency_admissions",
+    "total_prior_visits",
+    "diagnosis_count",
+    "active_diabetic_meds_count",
+    "age_midpoint",
+    "clinical_risk_index",
+    "has_prior_inpatient",
+    "frequent_utilizer_flag",
+    "extended_stay_flag",
+    "high_comorbidity_flag",
+    "comorbidity_cardio_diabetes",
+    "medication_change_flag",
+    "diabetes_med_flag",
+    "on_insulin",
+    "insulin_titration_up",
+    "insulin_titration_down",
+    "on_metformin",
+    "a1c_tested",
+    "a1c_high",
+    "glucose_tested",
+    "glucose_high",
+    "is_elderly",
+    "gender_Male",
+    "admission_category_Emergency",
+    "admission_category_Other",
+    "admission_category_Urgent",
+    "discharge_category_Left AMA",
+    "discharge_category_Other",
+    "discharge_category_Transferred / Skilled Facility",
+    "diag_1_category_Diabetes",
+    "diag_1_category_Digestive",
+    "diag_1_category_Endocrine/Metabolic Other",
+    "diag_1_category_Genitourinary",
+    "diag_1_category_Injury",
+    "diag_1_category_Missing/Unknown",
+    "diag_1_category_Musculoskeletal",
+    "diag_1_category_Neoplasms",
+    "diag_1_category_Other",
+    "diag_1_category_Other/Supplemental",
+    "diag_1_category_Respiratory"
+  ],
+  "metrics_summary": {
+    "Logistic_Regression": {
+      "test_roc_auc": 0.669,
+      "test_recall": 0.584,
+      "test_f1": 0.2752,
+      "test_pr_auc": 0.2178,
+      "test_brier": 0.2291
+    },
+    "Random_Forest": {
+      "test_roc_auc": 0.6738,
+      "test_recall": 0.5887,
+      "test_f1": 0.279,
+      "test_pr_auc": 0.2297,
+      "test_brier": 0.2181
+    },
+    "XGBoost": {
+      "test_roc_auc": 0.6767,
+      "test_recall": 0.604,
+      "test_f1": 0.2826,
+      "test_pr_auc": 0.231,
+      "test_brier": 0.2189
+    }
+  },
+  "operating_recommendation": {
+    "default_threshold": 0.5,
+    "clinical_high_sensitivity_threshold": 0.2,
+    "intended_use": "Decision-support triage for inpatient discharge planning"
+  }
+}
